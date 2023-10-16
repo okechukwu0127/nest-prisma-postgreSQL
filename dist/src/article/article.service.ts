@@ -8,7 +8,7 @@ export class ArticleService {
   constructor(private prisma: PrismaService) {}
 
   async create(createArticleDto: CreateArticleDto) {
-    const articleTitle = await this.prisma.article.findUnique({
+    /*  const articleTitle = await this.prisma.article.findUnique({
       where: { title: createArticleDto.title },
     });
 
@@ -17,7 +17,7 @@ export class ArticleService {
         `Article with title: ${createArticleDto.title} already exist`,
       );
     }
-
+ */
     return this.prisma.article.create({ data: createArticleDto });
   }
 

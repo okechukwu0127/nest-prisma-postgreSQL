@@ -8,15 +8,18 @@ import {
   Delete,
   NotFoundException,
   ParseIntPipe,
+  UseFilters,
 } from '@nestjs/common';
 import { ArticleService } from './article.service';
 import { CreateArticleDto } from './dto/create-article.dto';
 import { UpdateArticleDto } from './dto/update-article.dto';
 import { ApiCreatedResponse, ApiTags } from '@nestjs/swagger';
 import { ArticleEntity } from './entities/article.entity';
+import { PrismaClientExceptionFilter } from 'src/prisma-client-exception/prisma-client-exception.filter';
 
 @Controller('article')
 @ApiTags('Articles')
+@UseFilters(PrismaClientExceptionFilter)
 export class ArticleController {
   constructor(private readonly articleService: ArticleService) {}
 
