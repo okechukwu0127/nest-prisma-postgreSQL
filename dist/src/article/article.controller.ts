@@ -17,7 +17,7 @@ import { ApiCreatedResponse, ApiTags } from '@nestjs/swagger';
 import { ArticleEntity } from './entities/article.entity';
 import { PrismaClientExceptionFilter } from 'src/prisma-client-exception/prisma-client-exception.filter';
 
-@Controller('article')
+@Controller('articles')
 @ApiTags('Articles')
 @UseFilters(PrismaClientExceptionFilter)
 export class ArticleController {
